@@ -1,0 +1,81 @@
+<!-- <dx-data-grid id="dataGrid"
+  [dataSource]="People"
+  keyExpr = "ID"
+  [columnAutoWidth]="true"
+  [allowColumnResizing]="true"
+  [allowColumnReordering]="true">
+</dx-data-grid>
+ -->
+
+
+
+
+<dx-data-grid 
+   id="dataGrid" 
+  [dataSource]="People"
+>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+  <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+  <dxi-column
+    dataField="ID"
+    dataType="number"
+    [width]="50"
+    >
+    <dxi-validation-rule 
+      type="required" 
+      message="My custom message"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column
+    dataField="lastName"
+    >
+    <dxi-validation-rule type="required" [trim]="true"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column
+    dataField="firstName">
+    <dxi-validation-rule type="required" [trim]="true"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column
+    dataField="DOB"
+    dataType="date">
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column
+    dataField="sex"
+    >
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-column>
+
+  <dxi-column
+    dataField="email"
+    >
+    <dxi-validation-rule 
+      type="required"
+      message="Введыть будь ласка емейл">
+    </dxi-validation-rule>
+    <dxi-validation-rule 
+      type="email"
+      message="Емейл введений не вірно">
+    </dxi-validation-rule>
+  </dxi-column>
+
+  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+  <dxo-editing
+      mode="row"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [allowAdding]="true">
+  </dxo-editing>
+</dx-data-grid>
+
+
+<!-- <dx-data-grid ... >
+ 
+  <dxi-column dataField="PostalCode" [visible]="false"></dxi-column>
+   Питання, чому нпотрібна ця строка   
+  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+</dx-data-grid> -->
